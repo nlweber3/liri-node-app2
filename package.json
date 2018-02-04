@@ -1,0 +1,25 @@
+{
+  "name": "liri-node-app2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nlweber3/liri-node-app2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nlweber3/liri-node-app2/issues"
+  },
+  "homepage": "https://github.com/nlweber3/liri-node-app2#readme",
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "require": "^2.4.20",
+    "twitter": "^1.7.1"
+  }
+}
