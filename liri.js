@@ -8,11 +8,11 @@ var Spotify = require('node-spotify-api');
 
 //function for choosing api call
 function checkforinput() {
-	if (process.argv[2] = tweets) {
+	if (process.argv[2] = 'tweets') {
 		tweets();
 	}
-	else if (process.argv[2] = spotify) {
-		spotify();
+	else if (process.argv[2] = 'spotify') {
+		spotifyThis();
 	}
 
 };
@@ -42,23 +42,27 @@ function tweets() {
 }
 
 
+
+//spotify api
+function spotifyThis() {
 var spotify = new Spotify({
 	id: process.env.SPOTIFY_ID,
 	secret: process.env.SPOTIFY_SECRET
 });
 
 
-//spotify api
-function spotify() {
-spotify.search({ type: 'track', query: process.argv[3], limit:1 }, function(err, data) {
+spotify.search({ type: 'artist', query: process.argv[3], limit:1 }, function(err, data) {
 	if (error) {
 		return console.log('Error occurred: ' + err);
 	}
+	else {
+		console.log(data);	
+	}
 
-	console.log(data.tracks.items[0]); 
+	 
 });
 }
-
+ 
 
 
 
