@@ -4,15 +4,19 @@ var request = require('request');
 var fs = require('fs');
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
+var omdb = require('omdb');
 
 
 //function for choosing api call
 function checkforinput() {
-	if (process.argv[2] = 'tweets') {
+	if (process.argv[2] === 'tweets') {
 		tweets();
 	}
-	else if (process.argv[2] = 'spotify') {
+	else if (process.argv[2] === 'spotify') {
 		spotifyThis();
+	}
+	else if (process.argv[2] === 'movie') {
+		getMovie();
 	}
 
 };
@@ -62,7 +66,21 @@ spotify.search({ type: 'artist', query: process.argv[3], limit:1 }, function(err
 	 
 });
 }
+
+//function ombd
+function getMovie() {
+	omdb.get({title: process.argv[3]}, true, function(err, movie) {
+    if(err) {
+        return console.error(err);
+    }
  
+    if(movies.length < 1) {
+        return console.log('No movies were found!');
+    }
+    console.log(movie.title);
+ 
+ });
+}
 
 
 
