@@ -76,14 +76,28 @@ var movieRequest = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey
 
 	if (movie) {
 	request(movieRequest, function(err, response, body) {
-		console.log(JSON.parse(body));
+		console.log("title: " + movie);
+		console.log("Year: " + JSON.parse(body).Year);
+		console.log("IMBD Rating: " + JSON.parse(body).Ratings[0].Value);
+		console.log("Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value);
+		console.log("Country: " + JSON.parse(body).Country);
+		console.log("Language: " + JSON.parse(body).Language);
+		console.log("Movie Plot: " + JSON.parse(body).Plot);
+		console.log("Cast: " + JSON.parse(body).Actors);
  
  });
 }
 else {
 	movieRequest  = "http://www.omdbapi.com/?t=" + "Mr. Nobody" + "&y=&plot=short&apikey=trilogy";
 	request(movieRequest, function(err, response, body) {
-		console.log(JSON.parse(body));
+		console.log("title: " + " Mr. Nobody");
+		console.log("Year: " + JSON.parse(body).Year);
+		console.log("IMBD Rating: " + JSON.parse(body).Ratings[0].Value);
+		console.log("Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value);
+		console.log("Country: " + JSON.parse(body).Country);
+		console.log("Language: " + JSON.parse(body).Language);
+		console.log("Movie Plot: " + JSON.parse(body).Plot);
+		console.log("Cast: " + JSON.parse(body).Actors);
 });
 };
 };
