@@ -69,19 +69,24 @@ spotify.search({ type: 'artist', query: process.argv[3], limit:1 }, function(err
 
 //function ombd
 function getMovie() {
-	omdb.get({title: process.argv[3]}, true, function(err, movie) {
-    if(err) {
-        return console.error(err);
-    }
- 
-    if(movies.length < 1) {
-        return console.log('No movies were found!');
-    }
-    console.log(movie.title);
+
+var movie = process.argv[3];
+
+var movieRequest = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+
+	if (movie) {
+	request(movieRequest, function(err, response, body) {
+		console.log(JSON.parse(body));
  
  });
 }
-
+else {
+	movieRequest  = "http://www.omdbapi.com/?t=" + "Mr. Nobody" + "&y=&plot=short&apikey=trilogy";
+	request(movieRequest, function(err, response, body) {
+		console.log(JSON.parse(body));
+});
+};
+};
 
 
 checkforinput();
